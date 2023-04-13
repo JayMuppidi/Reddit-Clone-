@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+    backend:
+      build: ./backend
+      environment:
+        - PORT=8000
+      restart: unless-stopped
+      networks:
+        - web-network
+
+
+    frontend:
+      build: ./frontend
+      environment:
+        - PORT=3000
+      networks:
+        - web-network
+    nginx:
+      image: nginx
+      container_name: webserver
+      restart: unless-stopped
+      depends_on:
+        - backend
+        - frontend
+      ports:
+        - 8080:8080
+      volumes:
+        - ./nginx/local.conf:/etc/nginx/nginx.conf
+      networks:
+        - web-network
+
+networks:
+  web-network:
+    driver: bridge
