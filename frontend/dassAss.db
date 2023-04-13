@@ -1,0 +1,93 @@
+use redditCloneDB;
+
+db.createCollection("users");
+db.createCollection("posts");
+db.createCollection("comments");
+
+db.users.insertMany([
+  {
+   
+    firstname:"prakruthi",
+    lastname:"nallapati",
+    username: "panipuri",
+    email: "user1@gmail.com",
+    age:"19",
+    contactno:"8919113875"
+    password: "iAmDumb"
+  },
+  {
+   firstname:"balsina",
+    lastname:"pranav",
+    username: "iloveNick",
+    email: "user2@gmail.com",
+    age:"19",
+    contactno:"8374292527"
+    password: "iAmDumber"
+  },
+  {
+   firstname:"jaynette",
+    lastname:"slayer",
+    username: "foreverbarbie",
+    email: "user3@gmail.com",
+    age:"19",
+    contactno:"9378320139"
+    password: "SuperMon2"
+  },
+  {
+   firstname:"aayush",
+    lastname:"acharya",
+    username: "yeetusonthefeetus",
+    email: "user4@gmail.com",
+    age:"19",
+    contactno:"7020085098"
+    password: "manIsh40"
+  },
+  {
+   firstname:"jigjig",
+    lastname:"jay",
+    username: "destrier26",
+    email: "user5@gmail.com",
+    age:"18",
+    contactno:"9507269065"
+    password: "badBitch999"
+  }
+]);
+
+db.posts.insertMany([
+  {
+    title: "Post 1",
+    description: "This is post 1",
+    author: ObjectId("5f08b80dcb9c04a41f9b8cdd"),
+    votes: 10
+  },
+  {
+    title: "Post 2",
+    description: "This is post 2",
+    author: ObjectId("5f08b80dcb9c04a41f9b8cde"),
+    votes: 20
+  },
+  {
+    title: "Post 3",
+    description: "This is post 3",
+    author: ObjectId("5f08b80dcb9c04a41f9b8cdf"),
+    votes: 30
+  }
+]);
+
+db.comments.insertMany([
+  {
+    text: "Comment 1 for post 1",
+    author: ObjectId("5f08b80dcb9c04a41f9b8cdd"),
+    post: ObjectId("5f08b80dcb9c04a41f9b8ce0")
+  },
+  {
+    text: "Comment 2 for post 1",
+    author: ObjectId("5f08b80dcb9c04a41f9b8cde"),
+    post: ObjectId("5f08b80dcb9c04a41f9b8ce0")
+  },
+  {
+    text: "Comment 1 for post 2",
+    author: ObjectId("5f08b80dcb9c04a41f9b8cdf"),
+    post: ObjectId("5f08b80dcb9c04a41f9b8ce1")
+  }
+]);
